@@ -17,6 +17,11 @@
     --bs-link-hover-color:var(--svn-grey);
 }
 
+.svn-sidenav{
+    position:sticky;
+    top: 0;
+}
+
 .svn-btn-toggle{
     --bs-btn-color: var(--svn-black);
     --bs-btn-bg: var(--svn-white);
@@ -72,4 +77,39 @@
 .login-image div{
     flex: 0 0 100%;
     background-color: #ffffff94;
+}
+
+.w-20{
+    width: 20%;
+}
+.w-80{
+    width: 80%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.customer-management-user-profile .nav-link{
+    color: rgb(255 255 255);
+    background-color: var(--svn-grey);
+}
+.customer-management-user-profile .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: #fff;
+    background-color: var(--svn-red);
+}
+.customer-management-user-profile .tab-content{
+    background: var(--svn-white);
+}
+#voice-cdrs-tab-pane th{
+    vertical-align: middle;
+    white-space: nowrap;
 }

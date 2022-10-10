@@ -1,4 +1,8 @@
-const labels = [
+//color
+var red = 'rgb(154, 3, 30,1)';
+var grey = 'rgb(115, 115, 115,1)';
+//---------------DashboardChart
+const dashboardLabels = [
     'January',
     'February',
     'March',
@@ -6,29 +10,105 @@ const labels = [
     'May',
     'June',
   ];
-
-  const data = {
-    labels: labels,
+  const dashBoardData = {
+    labels: dashboardLabels,
     datasets: [{
       label: 'New',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: grey,
+      borderColor: grey,
       data: [0, 10, 5, 2, 20, 30, 45],
     },{
         label: 'Renewal',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
+        backgroundColor: red,
+        borderColor: red,
         data: [5, 10, 15, 5, 20, 40, 55],
       }]
   };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
+  new Chart(
+    document.getElementById('dashboardChart'),{
+      type: 'line',
+      data: dashBoardData,
+      options: {}
+    }
   );
+//----------------DashboardChart End
+
+
+//----------------Top Countries by Subscriber Location
+const topBySubscriptionLocLabel = [
+  'Honkong',
+  'Taiwan',
+  'Kuwait',
+  'United States',
+  'Singapore',
+];
+const topBySubscriptionLocData = {
+  labels: topBySubscriptionLocLabel,
+  datasets: [{
+  axis: 'y',
+  label: 'Top Countries by Subscriber Location',
+  data: [65, 59, 80, 81, 56],
+  fill: false,
+  backgroundColor: red,
+  }]
+};
+
+new Chart(
+  document.getElementById('topBySubscriptionLocChart'),{
+    type: 'bar',
+    data:topBySubscriptionLocData,
+    options: {
+      indexAxis: 'y',
+      maxBarThickness:40,
+      scales: {
+        x: {
+            stacked: true
+        },
+        y: {
+            stacked: true
+        }
+      }
+    }
+  }
+);
+//-------------------Top Countries by Subscriber Location End
+
+
+//----------------Top Countries by Subscriber
+const topBySubscriptionLabel = [
+  'Honkong',
+  'Taiwan',
+  'Kuwait',
+  'United States',
+  'Singapore',
+];
+const topBySubscriptionData = {
+  labels: topBySubscriptionLabel,
+  datasets: [{
+  axis: 'y',
+  label: 'Top Countries by Subscriber',
+  data: [20, 30, 35, 70, 60],
+  fill: false,
+  backgroundColor: red,
+  }]
+};
+
+new Chart(
+  document.getElementById('topBySubscriptionChart'),{
+    type: 'bar',
+    data:topBySubscriptionData,
+    options: {
+      indexAxis: 'y',
+      maxBarThickness:40,
+      scales: {
+        x: {
+            stacked: true
+        },
+        y: {
+            stacked: true
+        }
+      }
+    }
+  }
+);
+//-------------------Top Countries by Subscriber End

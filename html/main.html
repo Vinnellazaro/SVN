@@ -12,22 +12,24 @@
     
     <div class="container-fluid ps-0">
         <div class="row flex-nowrap m-0">
-            <div class="col-3 px-0 bg-svn-red">
+            <div class="w-20 px-0 bg-svn-red">
                 <div class="svn-sidenav d-flex flex-column text-white min-vh-100">
                     <h2 class="text-center px-3 mt-3 mb-5">SVN CRM</h2>
                     <div class="nav flex-column nav-pills w-100 text-start" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <button class="nav-link text-start py-3 active" id="v-pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#v-pills-dashboard" type="button" role="tab" aria-controls="v-pills-dashboard" aria-selected="true"><h5 class="m-0"><i class="bi bi-clipboard-data"></i> Dashboard</h5></button>
                         <button class="nav-link text-start py-3" id="v-pills-gr-tab" data-bs-toggle="pill" data-bs-target="#v-pills-gr" type="button" role="tab" aria-controls="v-pills-gr" aria-selected="false"><h5 class="m-0"><i class="bi bi-pin-map-fill"></i> Geographic Reach</h5></button>
                         <button class="nav-link text-start py-3" id="v-pills-cm-tab" data-bs-toggle="pill" data-bs-target="#v-pills-cm" type="button" role="tab" aria-controls="v-pills-cm" aria-selected="false"><h5 class="m-0"><i class="bi bi-headset"></i> Customer Management</h5></button>
+                        <button class="nav-link text-start py-3" id="v-pills-notif-tab" data-bs-toggle="pill" data-bs-target="#v-pills-notif" type="button" role="tab" aria-controls="v-pills-notif" aria-selected="false"><h5 class="m-0"><i class="bi bi-bell-fill"></i> Notification Management</h5></button>
                         <button class="nav-link text-start py-3" id="v-pills-inventory-tab" data-bs-toggle="pill" data-bs-target="#v-pills-inventory" type="button" role="tab" aria-controls="v-pills-inventory" aria-selected="false"><h5 class="m-0"><i class="bi bi-box-seam"></i> SVN Inventory</h5></button>
                     </div>
                     <button class="btn btn-secondary rounded-0 mt-auto mb-4 text-start"><h5 class="m-0"><i class="bi bi-box-arrow-right"></i> Log out</h5></button>
                 </div>
             </div>
-            <div class="col py-3">
+            <div class="w-80 py-3">
                 <div class="tab-content" id="v-pills-tabContent">
+                    <!--Dashboard-->
                     <div class="tab-pane fade show active" id="v-pills-dashboard" role="tabpanel" aria-labelledby="v-pills-dashboard-tab" tabindex="0">
-                        <div class="row text-center">
+                        <div class="row text-center m-0">
                             <div class="col-4">
                                 <div class="card">
                                     <div class="card-header bg-svn-grey"><b>Total Subscribers</b></div>
@@ -48,7 +50,7 @@
                             </div>
                         </div>
                         <h6 class="mt-2">Period</h6>
-                        <div class="row">
+                        <div class="row m-0">
                             <div class="col-7">
                                 <div class="input-group">
                                     <input type="date" class="form-control">
@@ -63,24 +65,418 @@
                             </div>
                             <div class="col-5">
                                 <div class="input-group mb-3">
-                                    <button class="btn btn-outline-secondary dropdown-toggle ms-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false">Total Subscribers</button>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">1</a></li>
-                                      <li><a class="dropdown-item" href="#">2</a></li>
-                                      <li><a class="dropdown-item" href="#">3</a></li>
-                                    </ul>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select option</option>
+                                        <option value="1">Total Subscribers</option>
+                                        <option value="2">Total Active Subscribers</option>
+                                        <option value="3">Total Subscriptions</option>
+                                        <option value="4">Subscribers by type</option>
+                                    </select>
                                     <button class="btn svn-btn" type="button"><i class="bi bi-box-arrow-in-down"></i> Export Data</button>
                                   </div>
                             </div>
                             <h6>Subscribers by Type</h6>
-                            <div style="position: relative; height:100%; width:100%">
-                                <canvas id="myChart"></canvas>
+                            <div>
+                                <canvas id="dashboardChart"></canvas>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab" tabindex="0">...</div>
-                    <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">...</div>
-                    <div class="tab-pane fade" id="v-pills-cm" role="tabpanel" aria-labelledby="v-pills-cm-tab" tabindex="0">...</div>
+                    <!--Dashboard End-->
+                    <!--Geographic Reach-->
+                    <div class="tab-pane fade" id="v-pills-gr" role="tabpanel" aria-labelledby="v-pills-gr-tab" tabindex="0">
+                        <div class="row m-0 text-center justify-content-center">
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Subscribers</b></div>
+                                    <div class="card-body"><h3 class="m-0">112,708</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Active Subscribers</b></div>
+                                    <div class="card-body"><h3 class="m-0">90,500</h3></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="mt-2">Period</h6>
+                        <div class="row m-0">
+                            <div class="col-7">
+                                <div class="input-group">
+                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="input-group mb-3">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select option</option>
+                                        <option value="1">Total Subscribers</option>
+                                        <option value="2">Total Active Subscribers</option>
+                                        <option value="3">Total Subscriptions</option>
+                                        <option value="4">Subscribers by type</option>
+                                    </select>
+                                    <button class="btn svn-btn" type="button"><i class="bi bi-box-arrow-in-down"></i> Export Data</button>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header d-flex">
+                                <h5 class="w-100">Top Countries by Subscriber Location</h5>
+                                <div class="input-group w-20">
+                                    <span class="input-group-text" id="basic-addon1">Top N</span>
+                                    <input type="number" class="form-control" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <canvas id="topBySubscriptionLocChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-2">
+                            <div class="card-header d-flex">
+                                <h5 class="w-100">Top Countries by Subscriber Location</h5>
+                                <div class="input-group w-20">
+                                    <span class="input-group-text" id="basic-addon1">Top N</span>
+                                    <input type="number" class="form-control" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <canvas id="topBySubscriptionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Geographic Reach End-->
+                    <!--Customer Management-->
+                    <div class="tab-pane fade" id="v-pills-cm" role="tabpanel" aria-labelledby="v-pills-cm-tab" tabindex="0">
+                        <div class="customer-management-list d-none">
+                            <h4>Customer Management</h4>
+                            <div class="input-group w-50 mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn svn-btn" type="button" id="button-addon2">Search</button>
+                            </div>
+                            <table class="table border table-striped table-hover">
+                                <thead>
+                                  <tr class="bg-svn-grey">
+                                    <th scope="col">SVN MIN</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Mobile Number</th>
+                                    <th scope="col">SVN MIN Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>00000000000</td>
+                                    <td>Jolina Bee</td>
+                                    <td>63123456789</td>
+                                    <td>Active</td>
+                                  </tr>
+                                  <tr>
+                                    <td>00000000000</td>
+                                    <td>Jolina Bee</td>
+                                    <td>63123456789</td>
+                                    <td>Inactive</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="customer-management-user-profile">
+                            <h4>Customer Management - User Profile</h4>
+                            <div class="row m-0">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Name</span>
+                                        <input disabled type="text" class="form-control bg-light" value="Jolina Bee">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Mobile Number</span>
+                                        <input disabled type="text" class="form-control bg-light" value="091234568489">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">Account Status</span>
+                                        <input disabled type="text" class="form-control bg-light" value="Active">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">SVN MIN</span>
+                                        <input disabled type="text" class="form-control bg-light" value="091234568489">
+                                    </div>
+                                </div>
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link active" id="account-info-tab" data-bs-toggle="tab" data-bs-target="#account-info-tab-pane" type="button" role="tab" aria-controls="account-info-tab-pane" aria-selected="true">Account Information</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="svn-subs-tab" data-bs-toggle="tab" data-bs-target="#svn-subs-tab-pane" type="button" role="tab" aria-controls="svn-subs-tab-pane" aria-selected="false">SVN Subscription</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="voice-cdrs-tab" data-bs-toggle="tab" data-bs-target="#voice-cdrs-tab-pane" type="button" role="tab" aria-controls="voice-cdrs-tab-pane" aria-selected="false">Voice CDRs</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link" id="sms-cdrs-tab" data-bs-toggle="tab" data-bs-target="#sms-cdrs-tab-pane" type="button" role="tab" aria-controls="sms-cdrs-tab-pane" aria-selected="false">SMS CDRs</button>
+                                    </li>
+                                  </ul>
+                                  <div class="tab-content rounded" id="myTabContent">
+                                    <div class="tab-pane fade py-4 show active" id="account-info-tab-pane" role="tabpanel" aria-labelledby="account-info-tab" tabindex="0">
+                                        <table class="table bg-light table-striped">
+                                            <tbody>
+                                              <tr>
+                                                <th>Country</th>
+                                                <td>Hongkong</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Registered Mobile Number</th>
+                                                <td>0912548699</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Date Registered</th>
+                                                <td>10/10/2022</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Paired SVN MIN</th>
+                                                <td>091234589</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Date Paired</th>
+                                                <td>10/10/2022</td>
+                                              </tr>
+                                              <tr>
+                                                <th>SVN MIN Status</th>
+                                                <td class="text-success"><b>Active</b></td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="svn-subs-tab-pane" role="tabpanel" aria-labelledby="svn-subs-tab" tabindex="0">
+                                        <table class="table bg-light table-striped mt-3">
+                                            <tbody>
+                                              <tr>
+                                                <th>Date Created</th>
+                                                <td>10/10/2022</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Date Updated</th>
+                                                <td>10/10/2022</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Transaction Type</th>
+                                                <td>Include New Registrations (90-day FREE) as transaction type</td>
+                                              </tr>
+                                              <tr>
+                                                <th>TINBO Number</th>
+                                                <td>091234589</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Transaction Details</th>
+                                                <td> include 90-day FREE Trial as an SVN SKU for those users who are newly registered and are using the 90-day free SVN</td>
+                                              </tr>
+                                              <tr>
+                                                <th>Expiration Date</th>
+                                                <td><b>10/10/2022</b></td>
+                                              </tr>
+                                              <tr>
+                                                <th>Status</th>
+                                                <td class="text-success"><b>Active</b></td>
+                                              </tr>
+                                              <tr>
+                                                <th>Remarks</th>
+                                                <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="tab-pane fade" id="voice-cdrs-tab-pane" role="tabpanel" aria-labelledby="voice-cdrs-tab" tabindex="0">
+                                        <div class="input-group my-3">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected="">Select option</option>
+                                                <option value="1">All Status</option>
+                                                <option value="2">Connected</option>
+                                                <option value="3">Failed</option>
+                                            </select>
+                                            <input type="date" class="form-control">
+                                            <input type="date" class="form-control">
+                                            <button class="btn svn-btn" type="button"><i class="bi bi-box-arrow-in-down"></i> Export Data</button>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered bg-light table-striped">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Call Type</th>
+                                                    <th scope="col">Call Destination Country</th>
+                                                    <th scope="col">Destination Number</th>
+                                                    <th scope="col">Caller Originating Country</th>
+                                                    <th scope="col">Caller Number</th>
+                                                    <th scope="col">Wallet</th>
+                                                    <th scope="col">Call Duration</th>
+                                                    <th scope="col">Beginning Balance</th>
+                                                    <th scope="col">Ending Balance</th>
+                                                    <th scope="col">Call Status</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>10/10/2022 00:00:00</td>
+                                                    <td>Inbound</td>
+                                                    <td>Hongkong</td>
+                                                    <td>0000000000</td>
+                                                    <td>Philippines</td>
+                                                    <td>0912235468</td>
+                                                    <td>TINBO Number + 50 Mins + 50 SMS to PH</td>
+                                                    <td>00:00:00</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>CONNECTED</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>10/10/2022 00:00:00</td>
+                                                    <td>Inbound</td>
+                                                    <td>Hongkong</td>
+                                                    <td>0000000000</td>
+                                                    <td>Philippines</td>
+                                                    <td>0912235468</td>
+                                                    <td>TINBO Number + 50 Mins + 50 SMS to PH</td>
+                                                    <td>00:00:00</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>CONNECTED</td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="sms-cdrs-tab-pane" role="tabpanel" aria-labelledby="sms-cdrs-tab" tabindex="0">
+                                        <div class="input-group my-3">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected="">Select option</option>
+                                                <option value="1">All Status</option>
+                                                <option value="2">Delivered</option>
+                                                <option value="3">Failed</option>
+                                            </select>
+                                            <input type="date" class="form-control">
+                                            <input type="date" class="form-control">
+                                            <button class="btn svn-btn" type="button"><i class="bi bi-box-arrow-in-down"></i> Export Data</button>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered bg-light table-striped">
+                                                <thead>
+                                                  <tr>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">SMS Type</th>
+                                                    <th scope="col">SMS Destination Country</th>
+                                                    <th scope="col">Destination Number</th>
+                                                    <th scope="col">SMS Originating Country</th>
+                                                    <th scope="col">SMS Sender</th>
+                                                    <th scope="col">Wallet</th>
+                                                    <th scope="col">Beginning Balance</th>
+                                                    <th scope="col">Ending Balance</th>
+                                                    <th scope="col">MESSAGE Status</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>10/10/2022 00:00:00</td>
+                                                    <td>Inbound</td>
+                                                    <td>Hongkong</td>
+                                                    <td>0000000000</td>
+                                                    <td>Philippines</td>
+                                                    <td>0912235468</td>
+                                                    <td>TINBO Number + 50 Mins + 50 SMS to PH</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>Delivered</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td>10/10/2022 00:00:00</td>
+                                                    <td>Inbound</td>
+                                                    <td>Hongkong</td>
+                                                    <td>0000000000</td>
+                                                    <td>Philippines</td>
+                                                    <td>0912235468</td>
+                                                    <td>TINBO Number + 50 Mins + 50 SMS to PH</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>50 Mins, 50 SMS</td>
+                                                    <td>Delivered</td>
+                                                  </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Customer Management End-->
+                    <!--Notification Management-->
+                    <div class="tab-pane fade" id="v-pills-notif" role="tabpanel" aria-labelledby="v-pills-notif-tab" tabindex="0">
+                        <h4>Notification Management</h4>
+                        <div class="row text-center m-0 mt-2">
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Delivered</b></div>
+                                    <div class="card-body"><h3 class="m-0">112,708</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Opened</b></div>
+                                    <div class="card-body"><h3 class="m-0">90,500</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Clicked</b></div>
+                                    <div class="card-body"><h3 class="m-0">45,055</h3></div>
+                                </div>
+                            </div>
+                            <div class="row m-0 mt-3 p-0">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <button class="btn svn-btn" type="button">Search</button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn svn-btn" type="button">Send Notifications</button>
+                                </div>
+                            </div>
+                            <table class="table table-striped mt-3 table-hover">
+                                <thead>
+                                  <tr class="bg-svn-grey">
+                                    <th scope="col">Campaign Name</th>
+                                    <th scope="col">Data Sent</th>
+                                    <th scope="col">Total Notification Sent</th>
+                                    <th scope="col">Total Delivered</th>
+                                    <th scope="col">Total Opened</th>
+                                    <th scope="col">Total Clicked</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>System Maintenance</td>
+                                    <td>10/10/2022 00:00:00</td>
+                                    <td>000,000</td>
+                                    <td>00</td>
+                                    <td>00</td>
+                                    <td>00</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Free Calls for All</td>
+                                    <td>10/10/2022 00:00:00</td>
+                                    <td>000,000</td>
+                                    <td>00</td>
+                                    <td>00</td>
+                                    <td>00</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            
+                        </div>
+                    </div>
+                    <!--Notification Management End-->
                     <div class="tab-pane fade" id="v-pills-inventory" role="tabpanel" aria-labelledby="v-pills-inventory-tab" tabindex="0">...</div>
                 </div>
             </div>
@@ -89,6 +485,7 @@
         
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/main.js"></script>
   </body>
