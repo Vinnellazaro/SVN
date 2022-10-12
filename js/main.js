@@ -112,3 +112,32 @@ new Chart(
   }
 );
 //-------------------Top Countries by Subscriber End
+$( "#send_notif_btn" ).click(function() {
+  $('.send-notif-container').removeClass('d-none');
+  $('.notif-management-container').addClass('d-none');
+});
+$( ".send-notif-cancel" ).click(function() {
+  $('.send-notif-container').addClass('d-none');
+  $('.notif-management-container').removeClass('d-none');
+});
+
+$( ".customer-management-list tr" ).click(function() {
+  $('.customer-management-user-profile').removeClass('d-none');
+  $('.customer-management-list').addClass('d-none');
+});
+$( "#assign_svn_btn" ).click(function() {
+  $('.assign-svn-container').removeClass('d-none');
+  $('.svn-inventory-container').addClass('d-none');
+});
+$( ".pd-cancel-btn" ).click(function() {
+  $('.svn-inventory-container').removeClass('d-none');
+  $('.assign-svn-container').addClass('d-none');
+});
+$( ".pd-continue-btn" ).click(function() {
+  $('.partner-summary-container').removeClass('d-none');
+  $('.partner-detail-container').addClass('d-none');
+});
+$( ".pds-backb-tn" ).click(function() {
+  $('.partner-detail-container').removeClass('d-none');
+  $('.partner-summary-container').addClass('d-none');
+});

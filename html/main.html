@@ -58,7 +58,9 @@
                                     <input type="checkbox" class="btn-check" id="btn-check-weekly">
                                     <label class="btn svn-btn-toggle" for="btn-check-weekly">Weekly</label><br>
                                     <input type="checkbox" class="btn-check" id="btn-check-monthly">
-                                    <label class="btn svn-btn-toggle rounded-end" for="btn-check-monthly">Monthly</label><br>
+                                    <label class="btn svn-btn-toggle" for="btn-check-monthly">Monthly</label><br>
+                                    <input type="checkbox" class="btn-check" id="btn-check-yearly">
+                                    <label class="btn svn-btn-toggle rounded-end" for="btn-check-yearly">Yearly</label><br>
                                     <!--button class="btn svn-btn" type="button">Weekly</button>
                                     <button class="btn svn-btn" type="button">Monthly</button-->
                                 </div>
@@ -151,9 +153,9 @@
                     <!--Geographic Reach End-->
                     <!--Customer Management-->
                     <div class="tab-pane fade" id="v-pills-cm" role="tabpanel" aria-labelledby="v-pills-cm-tab" tabindex="0">
-                        <div class="customer-management-list d-none">
+                        <div class="customer-management-list">
                             <h4>Customer Management</h4>
-                            <div class="input-group w-50 mb-3">
+                            <div class="input-group w-50 mb-3 mt-4">
                                 <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 <button class="btn svn-btn" type="button" id="button-addon2">Search</button>
                             </div>
@@ -167,13 +169,13 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
+                                  <tr class="tr-btn" role="button">
                                     <td>00000000000</td>
                                     <td>Jolina Bee</td>
                                     <td>63123456789</td>
                                     <td>Active</td>
                                   </tr>
-                                  <tr>
+                                  <tr class="tr-btn" role="button">
                                     <td>00000000000</td>
                                     <td>Jolina Bee</td>
                                     <td>63123456789</td>
@@ -182,9 +184,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="customer-management-user-profile">
+                        <div class="customer-management-user-profile d-none">
                             <h4>Customer Management - User Profile</h4>
-                            <div class="row m-0">
+                            <div class="row m-0 mt-4">
                                 <div class="col-6">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text">Name</span>
@@ -412,7 +414,8 @@
                     <!--Customer Management End-->
                     <!--Notification Management-->
                     <div class="tab-pane fade" id="v-pills-notif" role="tabpanel" aria-labelledby="v-pills-notif-tab" tabindex="0">
-                        <h4>Notification Management</h4>
+                      <h4>Notification Management</h4>
+                      <div class="notif-management-container mt-4">
                         <div class="row text-center m-0 mt-2">
                             <div class="col-4">
                                 <div class="card">
@@ -440,44 +443,235 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <button class="btn svn-btn" type="button">Send Notifications</button>
+                                    <button class="btn svn-btn" type="button" id="send_notif_btn"><i class="bi bi-send"></i> Send Notifications</button>
                                 </div>
                             </div>
                             <table class="table table-striped mt-3 table-hover">
-                                <thead>
-                                  <tr class="bg-svn-grey">
-                                    <th scope="col">Campaign Name</th>
-                                    <th scope="col">Data Sent</th>
-                                    <th scope="col">Total Notification Sent</th>
-                                    <th scope="col">Total Delivered</th>
-                                    <th scope="col">Total Opened</th>
-                                    <th scope="col">Total Clicked</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>System Maintenance</td>
-                                    <td>10/10/2022 00:00:00</td>
-                                    <td>000,000</td>
-                                    <td>00</td>
-                                    <td>00</td>
-                                    <td>00</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Free Calls for All</td>
-                                    <td>10/10/2022 00:00:00</td>
-                                    <td>000,000</td>
-                                    <td>00</td>
-                                    <td>00</td>
-                                    <td>00</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            
+                              <thead>
+                                <tr class="bg-svn-grey">
+                                  <th scope="col">Campaign Name</th>
+                                  <th scope="col">Data Sent</th>
+                                  <th scope="col">Total Notification Sent</th>
+                                  <th scope="col">Total Delivered</th>
+                                  <th scope="col">Total Opened</th>
+                                  <th scope="col">Total Clicked</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>System Maintenance</td>
+                                  <td>10/10/2022 00:00:00</td>
+                                  <td>000,000</td>
+                                  <td>00</td>
+                                  <td>00</td>
+                                  <td>00</td>
+                                </tr>
+                                <tr>
+                                  <td>Free Calls for All</td>
+                                  <td>10/10/2022 00:00:00</td>
+                                  <td>000,000</td>
+                                  <td>00</td>
+                                  <td>00</td>
+                                  <td>00</td>
+                                </tr>
+                              </tbody>
+                            </table>
                         </div>
+                      </div>
+                      <div class="send-notif-container mt-4 d-none">
+                        <div class="d-flex justify-content-center">
+                          <div class="col-9 bg-svn-white p-3 rounded text-start">
+                            <h5>Send New Notification</h5>
+                            <div class="mb-3">
+                              <label class="form-label">Campaign Name</label>
+                              <input type="text" class="form-control" placeholder="Campaign Name">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Notification Subject</label>
+                              <input type="text" class="form-control" placeholder="Notification Subject">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Notification Body</label>
+                              <textarea class="form-control" placeholder="Notification Body" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">URL Link</label>
+                              <input type="text" class="form-control" placeholder="URL Link">
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label">Notification Date and Time</label>
+                              <input type="datetime-local" class="form-control">
+                            </div>
+                            <h5>Target Audience</h5>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="ste">
+                              <label class="form-check-label" for="ste">Send to Everyone</label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="flexRadioDefault" id="sta">
+                              <label class="form-check-label" for="sta">Send to a targeted Audience</label>
+                            </div>
+                            <input class="form-control mt-2" type="file" id="uploadTarget">
+                            <div class="d-flex mt-3">
+                              <button type="button" class="btn btn-secondary me-auto send-notif-cancel">Cancel</button>
+                              <button type="button" class="btn svn-btn" data-bs-toggle="modal" data-bs-target="#successSentModal"><i class="bi bi-send"></i> Send</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="successSentModal" tabindex="-1" aria-labelledby="successSentModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-body text-center">
+                              <button type="button" class="btn-close ms-auto py-2 pe-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <i class="bi bi-check-circle-fill fs-1 text-success"></i>
+                              <h4 class="mt-2">Notification Sent</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <!--Notification Management End-->
-                    <div class="tab-pane fade" id="v-pills-inventory" role="tabpanel" aria-labelledby="v-pills-inventory-tab" tabindex="0">...</div>
+                    <!--SVN Inventory-->
+                    <div class="tab-pane fade" id="v-pills-inventory" role="tabpanel" aria-labelledby="v-pills-inventory-tab" tabindex="0">
+                      <div class="svn-inventory-container">
+                        <h4>SVN Inventory</h4>
+                        <div class="row text-center m-0 mt-4">
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Available SVN</b></div>
+                                    <div class="card-body"><h3 class="m-0">750,708</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total SVN Assigned to Partners</b></div>
+                                    <div class="card-body"><h3 class="m-0">250,00</h3></div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-header bg-svn-grey"><b>Total Partners</b></div>
+                                    <div class="card-body"><h3 class="m-0">100</h3></div>
+                                </div>
+                            </div>
+                            <div class="row m-0 mt-3 p-0">
+                                <div class="col-6">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control">
+                                        <button class="btn svn-btn" type="button">Search</button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn svn-btn" type="button" id="assign_svn_btn">Assign SVN Range</button>
+                                </div>
+                            </div>
+                            <table class="table table-striped mt-3 table-hover">
+                              <thead>
+                                <tr class="bg-svn-grey">
+                                  <th scope="col">Partner Name</th>
+                                  <th scope="col">Assingned SVN Range</th>
+                                  <th scope="col">SVN Batch Name</th>
+                                  <th scope="col">Integrating Channel</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>TINBO</td>
+                                  <td>0911111111-0922222222</td>
+                                  <td>TINBO Number</td>
+                                  <td>WebRTC</td>
+                                </tr>
+                                <tr>
+                                  <td>Ooredoo</td>
+                                  <td>0911111111-0922222222</td>
+                                  <td>PH Virtual Numbers</td>
+                                  <td>Direct Carrier Billing</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+                      </div>
+                      <div class="assign-svn-container d-none">
+                        <h4>SVN Inventory - Assign SVN Range</h4>
+                        <div class="d-flex justify-content-center mt-4">
+                          <div class="col-9 bg-svn-white p-3 rounded text-start">
+                            <div class="partner-detail-container">
+                              <h5>Enter Partner Details</h5>
+                              <div class="mb-3">
+                                <label class="form-label">Partner Name</label>
+                                <input type="text" class="form-control" placeholder="Partner Name">
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">SVN Batch Name</label>
+                                <input type="text" class="form-control" placeholder="SVN Batch Name">
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" placeholder="Description" rows="3"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">SVN MIN Count</label>
+                                <input type="text" class="form-control" placeholder="SVN MIN Count">
+                              </div>
+                              <select class="form-select" aria-label="Integrating Channel">
+                                <option selected="">WebRTC</option>
+                                <option value="1">App</option>
+                                <option value="2">Direct Carrier Billing</option>
+                                <option value="2">Other/s</option>
+                              </select>
+                              <div class="d-flex mt-3 justify-content-center">
+                                <button type="button" class="btn btn-secondary me-1 pd-cancel-btn">Cancel</button>
+                                <button type="button" class="btn svn-btn ms-1 pd-continue-btn">Continue</button>
+                              </div>
+                            </div>
+                            <div class="partner-summary-container d-none">
+                              <h5>Partner Details Summary</h5>
+                              <div class="mb-3">
+                                <label class="form-label">Partner Name</label>
+                                <input type="text" class="form-control" placeholder="Partner Name">
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">SVN Batch Name</label>
+                                <input type="text" class="form-control" placeholder="SVN Batch Name">
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" placeholder="Description" rows="3"></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">SVN MIN Count</label>
+                                <input type="text" class="form-control" placeholder="SVN MIN Count">
+                              </div>
+                              <select class="form-select" aria-label="Integrating Channel">
+                                <option selected="">WebRTC</option>
+                                <option value="1">App</option>
+                                <option value="2">Direct Carrier Billing</option>
+                                <option value="2">Other/s</option>
+                              </select>
+                              <div class="d-flex mt-3 justify-content-center">
+                                <button type="button" class="btn btn-secondary me-1 pds-backb-tn">Back</button>
+                                <button type="button" class="btn svn-btn ms-1" data-bs-toggle="modal" data-bs-target="#svnAssignedSuccessModal">Submit</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="svnAssignedSuccessModal" tabindex="-1" aria-labelledby="svnAssignedSuccessModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-body text-center">
+                              <button type="button" class="btn-close ms-auto py-2 pe-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                              <i class="bi bi-check-circle-fill fs-1 text-success"></i>
+                              <h4 class="mt-2">SVN MIN Range has been assigned to Partner</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--SVN Inventory End-->
                 </div>
             </div>
         </div>
@@ -487,6 +681,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="../js/main.js"></script>
   </body>
 </html>

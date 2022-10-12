@@ -9,6 +9,7 @@
 
 .bg-svn-red{background-color: var(--svn-red);}
 .bg-svn-grey{background-color: var(--svn-grey);color:var(--svn-white);}
+.bg-svn-white{background-color: var(--svn-white);}
 
 .svn-sidenav .nav-pills{
     --bs-nav-pills-border-radius: 0 !important;
@@ -112,4 +113,13 @@ input[type=number] {
 #voice-cdrs-tab-pane th{
     vertical-align: middle;
     white-space: nowrap;
+}
+
+#svnAssignedSuccessModal .btn-close,#successSentModal .btn-close{
+    position: absolute !important;
+    right: 7px !important;
+    top: 7px !important;
+}
+#svnAssignedSuccessModal i,#successSentModal i{
+    font-size: 5rem !important;
 }
